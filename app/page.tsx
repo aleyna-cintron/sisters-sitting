@@ -107,7 +107,7 @@ export default function Home() {
             >
               <div className="relative mb-6 overflow-hidden rounded-3xl shadow-xl">
                 <img
-                  src="/oneida.jpg"
+                  src="/oneida.JPG"
                   alt="Oneida with her Irish Setter"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
                 />
@@ -130,7 +130,7 @@ export default function Home() {
             >
               <div className="relative mb-6 overflow-hidden rounded-3xl shadow-xl">
                 <img
-                  src="/janay.jpg"
+                  src="/janay.JPG"
                   alt="Janay with her Havanese"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-500"
                 />
