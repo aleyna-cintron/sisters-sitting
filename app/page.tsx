@@ -25,11 +25,37 @@ export default function Home() {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null);
+  const [isTiktokPlaying, setIsTiktokPlaying] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for reaching out! We will get back to you soon. 🐾');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Thank you for reaching out! We will get back to you soon. 🐾' });
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setSubmitStatus({ type: 'error', message: data.error || 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -180,21 +206,37 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Video Side */}
               <div className="relative bg-[#9ca89e]/5 flex items-center justify-center p-8 lg:p-12">
-                <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-lg border-2 border-dashed border-[#8b6f47]/20 flex justify-center bg-white">
-                  <blockquote
-                    className="tiktok-embed"
-                    cite="https://www.tiktok.com/@baileythesetter/video/7604931303288343838"
-                    data-video-id="7604931303288343838"
-                    data-embed-from="oembed"
-                    style={{ maxWidth: '605px', minWidth: '325px', margin: 0 }}
-                  >
-                    <section>
-                      <a target="_blank" title="@baileythesetter" href="https://www.tiktok.com/@baileythesetter?refer=embed">@baileythesetter</a>
-                      <p>A little thank you gift for the pups I dog sit 🐾 I also got them some treats and toys as well 😆 <a title="dogsoftiktok" target="_blank" href="https://www.tiktok.com/tag/dogsoftiktok?refer=embed">#dogsoftiktok</a> <a title="doglover" target="_blank" href="https://www.tiktok.com/tag/doglover?refer=embed">#doglover</a> <a title="embroiderymachine" target="_blank" href="https://www.tiktok.com/tag/embroiderymachine?refer=embed">#embroiderymachine</a> <a title="spanielsoftiktok" target="_blank" href="https://www.tiktok.com/tag/spanielsoftiktok?refer=embed">#spanielsoftiktok</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> </p>
-                      <a target="_blank" title="♬ original sound - BaileyTheSetter" href="https://www.tiktok.com/music/original-sound-7604931343717206815?refer=embed">♬ original sound - BaileyTheSetter</a>
-                    </section>
-                  </blockquote>
-                  <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
+                <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-lg border-2 border-dashed border-[#8b6f47]/20 flex justify-center bg-white min-h-[580px] relative">
+                  {!isTiktokPlaying ? (
+                    <div className="absolute inset-0 z-10 bg-gray-100 flex flex-col items-center justify-center cursor-pointer" onClick={() => setIsTiktokPlaying(true)}>
+                      <div className="w-full h-full absolute inset-0">
+                        {/* Placeholder image using oneida.JPG as a fallback for now, or a nice gradient/pattern */}
+                        <img src="/oneida.JPG" alt="Video Thumbnail" className="w-full h-full object-cover opacity-50 blur-sm" />
+                        <div className="absolute inset-0 bg-black/20" />
+                      </div>
+                      <div className="relative z-20 bg-white/90 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110">
+                        <div className="w-0 h-0 border-t-[15px] border-t-transparent border-l-[25px] border-l-[#8b6f47] border-b-[15px] border-b-transparent ml-2" />
+                      </div>
+                      <p className="relative z-20 mt-4 text-white font-semibold text-lg drop-shadow-md">Watch Video</p>
+                    </div>
+                  ) : (
+                    <>
+                      <blockquote
+                        className="tiktok-embed"
+                        cite="https://www.tiktok.com/@baileythesetter/video/7604931303288343838"
+                        data-video-id="7604931303288343838"
+                        data-embed-from="oembed"
+                        style={{ maxWidth: '605px', minWidth: '325px', margin: 0 }}
+                      >
+                        <section>
+                          <a target="_blank" title="@baileythesetter" href="https://www.tiktok.com/@baileythesetter?refer=embed">@baileythesetter</a>
+                          <p>A little thank you gift for the pups I dog sit 🐾 I also got them some treats and toys as well 😆 <a title="dogsoftiktok" target="_blank" href="https://www.tiktok.com/tag/dogsoftiktok?refer=embed">#dogsoftiktok</a> <a title="doglover" target="_blank" href="https://www.tiktok.com/tag/doglover?refer=embed">#doglover</a> <a title="embroiderymachine" target="_blank" href="https://www.tiktok.com/tag/embroiderymachine?refer=embed">#embroiderymachine</a> <a title="spanielsoftiktok" target="_blank" href="https://www.tiktok.com/tag/spanielsoftiktok?refer=embed">#spanielsoftiktok</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a> </p>
+                          <a target="_blank" title="♬ original sound - BaileyTheSetter" href="https://www.tiktok.com/music/original-sound-7604931343717206815?refer=embed">♬ original sound - BaileyTheSetter</a>
+                        </section>
+                      </blockquote>
+                      <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -455,6 +497,7 @@ export default function Home() {
                 className="w-full h-full object-cover"
                 controls
                 playsInline
+                poster="/customer-pup.JPG"
               />
               <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                 Dog Walking
@@ -473,6 +516,7 @@ export default function Home() {
                 className="w-full h-full object-cover"
                 controls
                 playsInline
+                poster="/dog1.JPG"
               />
               <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                 Outdoor Time
@@ -614,11 +658,22 @@ export default function Home() {
                 ></textarea>
               </div>
 
+              {submitStatus && (
+                <div className={`p-4 rounded-xl mb-4 ${submitStatus.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-[#8b6f47] hover:bg-[#6f5838] text-white py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
+                disabled={isSubmitting}
+                className="w-full bg-[#8b6f47] disabled:bg-[#8b6f47]/70 hover:bg-[#6f5838] text-white py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg flex justify-center items-center"
               >
-                Send Message
+                {isSubmitting ? (
+                  <span className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
 
