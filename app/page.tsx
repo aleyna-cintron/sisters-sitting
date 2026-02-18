@@ -69,7 +69,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1658170208128-09d52af85578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMEhpc3BhbmljJTIwSXJpc2glMjBTZXR0ZXIlMjBkb2clMjBvdXRkb29yfGVufDF8fHx8MTc3MTM3NzgzMHww&ixlib=rb-4.1.0&q=80&w=1080)',
+            backgroundImage: 'url(https://images.pexels.com/photos/16395147/pexels-photo-16395147.jpeg)',
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
