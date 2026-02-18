@@ -248,40 +248,16 @@ export default function Home() {
           </motion.div>
 
           {/* Patch Collection Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               {
-                img: 'https://images.unsplash.com/photo-1672869541642-a89804be5039?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjBwb3J0cmFpdCUyMGNsb3NldXAlMjBzd2VldHxlbnwxfHx8fDE3NzEzNzg3MzV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Charlie'
+                img: '/dog1.JPG',
+                label: 'Custom Patch 1'
               },
               {
-                img: 'https://images.unsplash.com/photo-1766579131175-557661935fb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWJyb2lkZXJlZCUyMHBhdGNoJTIwaGFuZG1hZGUlMjBjcmFmdHxlbnwxfHx8fDE3NzEzNzg3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Patch'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1684005065768-a997c6dcadb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3JnaSUyMGRvZyUyMGhhcHB5JTIwcG9ydHJhaXR8ZW58MXx8fHwxNzcxMzc4NzM1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Luna'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1652979849231-d368d9928a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZWVkbGUlMjB0aHJlYWQlMjBlbWJyb2lkZXJ5JTIwY2xvc2V1cHxlbnwxfHx8fDE3NzEzNzg3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Patch'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1685387714439-edef4bd70ef5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFnbGUlMjBkb2clMjBwb3J0cmFpdCUyMGN1dGV8ZW58MXx8fHwxNzcxMzc4NzM1fDA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Buddy'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1766579131175-557661935fb9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbWJyb2lkZXJlZCUyMHBhdGNoJTIwaGFuZG1hZGUlMjBjcmFmdHxlbnwxfHx8fDE3NzEzNzg3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Patch'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1636890906264-135013858f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb21lcmFuaWFuJTIwc21hbGwlMjBkb2clMjBmbHVmZnl8ZW58MXx8fHwxNzcxMzc4NzM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Bella'
-              },
-              {
-                img: 'https://images.unsplash.com/photo-1652979849231-d368d9928a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZWVkbGUlMjB0aHJlYWQlMjBlbWJyb2lkZXJ5JTIwY2xvc2V1cHxlbnwxfHx8fDE3NzEzNzg3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-                label: 'Patch'
-              },
+                img: '/dog2.JPG',
+                label: 'Custom Patch 2'
+              }
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -289,7 +265,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="relative group"
+                className="relative group w-full md:w-64"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-lg border-2 border-dashed border-[#d4a5a5]/40">
                   <img
@@ -353,7 +329,6 @@ export default function Home() {
               <div className="text-center mb-6">
                 <p className="text-4xl text-[#8b6f47] mb-2">$15</p>
                 <p className="text-sm text-[#717182]">per walk</p>
-                <p className="text-xs text-[#9ca89e] mt-2">You earn $12 per service</p>
               </div>
               <p className="text-[#3d3d3d] mb-6 text-center leading-relaxed">
                 Safe, enjoyable walks tailored to your dog&apos;s energy level. Up to 4 walks per day available.
@@ -381,7 +356,6 @@ export default function Home() {
               <div className="text-center mb-6">
                 <p className="text-4xl text-[#8b6f47] mb-2">$14</p>
                 <p className="text-sm text-[#717182]">per visit</p>
-                <p className="text-xs text-[#9ca89e] mt-2">You earn $11.20 per visit</p>
               </div>
               <p className="text-[#3d3d3d] mb-6 text-center leading-relaxed">
                 Quick check-ins for feeding, playtime, and potty breaks when you&apos;re away.
@@ -409,7 +383,6 @@ export default function Home() {
               <div className="text-center mb-6">
                 <p className="text-4xl text-[#8b6f47] mb-2">$95</p>
                 <p className="text-sm text-[#717182]">per night</p>
-                <p className="text-xs text-[#9ca89e] mt-2">You earn $76 per night</p>
               </div>
               <p className="text-[#3d3d3d] mb-6 text-center leading-relaxed">
                 Overnight care in your home. Your dog stays comfortable and we&apos;re there all night.
@@ -439,14 +412,15 @@ export default function Home() {
             <div className="w-24 h-1 bg-[#d4a5a5] mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Images Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {[
-              'https://images.unsplash.com/photo-1609348490161-a879e4327ae9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGdvbGRlbiUyMHJldHJpZXZlciUyMGRvZyUyMHBvcnRyYWl0fGVufDF8fHx8MTc3MTMwMzg4Mnww&ixlib=rb-4.1.0&q=80&w=1080',
-              'https://images.unsplash.com/photo-1588218955664-d18f4e3056e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXRlJTIwZG9nJTIwcGxheWluZyUyMHRveXxlbnwxfHx8fDE3NzEzNzc4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-              'https://images.unsplash.com/photo-1712571354493-a249035399e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFsbCUyMGRvZyUyMGhhcHB5JTIwcG9ydHJhaXR8ZW58MXx8fHwxNzcxMzc3ODMxfDA&ixlib=rb-4.1.0&q=80&w=1080',
-              'https://images.unsplash.com/photo-1597475495184-7038d1cb7db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjB3YWxraW5nJTIwb3V0ZG9vciUyMG5hdHVyZXxlbnwxfHx8fDE3NzEzNzc4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-              'https://images.unsplash.com/photo-1658170208128-09d52af85578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMEhpc3BhbmljJTIwSXJpc2glMjBTZXR0ZXIlMjBkb2clMjBvdXRkb29yfGVufDF8fHx8MTc3MTM3NzgzMHww&ixlib=rb-4.1.0&q=80&w=1080',
-              'https://images.unsplash.com/photo-1584193147218-3cf8a08b34a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMEhpc3BhbmljJTIwSGF2YW5lc2UlMjBzbWFsbCUyMGRvZ3xlbnwxfHx8fDE3NzEzNzc4MzB8MA&ixlib=rb-4.1.0&q=80&w=1080',
+              { src: '/customer-pup.JPG', alt: 'Happy Customer Pup' },
+              { src: '/IMG_2898.JPG', alt: 'Happy Dog 2' },
+              { src: '/IMG_2899.JPG', alt: 'Happy Dog 3' },
+              { src: '/IMG_2901.JPG', alt: 'Happy Dog 4' },
+              { src: '/IMG_2902.JPG', alt: 'Happy Dog 5' },
+              { src: '/IMG_2904.JPG', alt: 'Happy Dog 6' },
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -455,42 +429,53 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
+                className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer group h-80"
               >
                 <img
-                  src={img}
-                  alt={`Happy dog ${idx + 1}`}
-                  className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
 
-          {/* Video Placeholders */}
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          {/* Videos Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-2xl shadow-lg bg-[#9ca89e]/10 h-80 flex items-center justify-center"
+              transition={{ duration: 0.5 }}
+              className="relative overflow-hidden rounded-2xl shadow-lg h-80 bg-black"
             >
-              <div className="text-center">
-                <Camera className="w-16 h-16 text-[#9ca89e] mx-auto mb-4" />
-                <p className="text-[#3d3d3d]">Video: Playtime with Max</p>
+              <video
+                src="/dog-walking.mov"
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+              />
+              <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+                Dog Walking
               </div>
             </motion.div>
+
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative overflow-hidden rounded-2xl shadow-lg bg-[#d4a5a5]/10 h-80 flex items-center justify-center"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative overflow-hidden rounded-2xl shadow-lg h-80 bg-black"
             >
-              <div className="text-center">
-                <Camera className="w-16 h-16 text-[#d4a5a5] mx-auto mb-4" />
-                <p className="text-[#3d3d3d]">Video: Walk in the Park</p>
+              <video
+                src="/dog-sitting.mov"
+                className="w-full h-full object-cover"
+                controls
+                playsInline
+              />
+              <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+                Outdoor Time
               </div>
             </motion.div>
           </div>
