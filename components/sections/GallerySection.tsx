@@ -49,7 +49,7 @@ export default function GallerySection() {
                             className="w-full h-full object-cover"
                             controls
                             playsInline
-                            poster="/customer-pup.JPG"
+                            muted
                         />
                         <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                             Dog Walking
@@ -62,7 +62,7 @@ export default function GallerySection() {
                             className="w-full h-full object-cover"
                             controls
                             playsInline
-                            poster="/dog1.JPG" // Using dog1 since user asked earlier, or keep previous
+                            muted
                         />
                         <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                             Outdoor Time

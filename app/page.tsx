@@ -1,4 +1,3 @@
-import React from 'react';
 import { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
 import MeetTheSisters from '@/components/sections/MeetTheSisters';
